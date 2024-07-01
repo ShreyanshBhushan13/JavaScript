@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMISES</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // here we learn how we consume a promise we are gettinng
+const cart=["shoes","pants","kurta"];
+const promise=createOrder(cart);
+// here promise is an empty object containg datavalues which  createOrder is returning
+// initially={data:undefined}
+// after ={data:orderDetails}
+promise.then(function(orderId)
+{
+    return proceedToPayment(orderId);
+});
+//+++++++++++++++++   OR
+
+// CREATING A PYRAMID DOOM
+//    OR CHAINING
+
+// return is most important so that we cant lose some data 
+createOrder(cart).then(function(orderId){
+    return proceedToPayment(orderId);
+})
+.then(function(paymentImf){
+    return showOderSummary(paymentImf);
+})
+.then(function(paymentImf){
+    return  updateWalletBalance(paymentImf);
+})
+</script>
+</html>

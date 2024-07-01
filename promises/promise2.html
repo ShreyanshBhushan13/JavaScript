@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE PROMISE </title>
+</head>
+<body>
+    
+</body>
+<script>
+const cart=["shoes","pants","kurta"];
+const promise=createOrder(cart);
+promise.then(function(orderId)
+{
+    console.log(orderId);
+    //return proceedToPayment(orderId);
+})
+.catch(function(err){
+console.log(err.message);
+
+});
+
+    // PRODUCER END
+
+
+function createOrder(cart){
+const pr=new Promise(function(resolve,reject){// to create promise
+// createOrder
+// validateCart
+// orderId
+if(!validateCart(cart)){
+    const err=new Error("cart is not valid")
+reject(err);
+}
+// logic of createOrder
+const orderId="1234"
+if(orderId){
+    setTimeout(function(){
+    resolve(orderId);},5000)
+}
+});
+return pr; 
+}
+function validateCart(cart){
+    return false;// to reject cart simply change true by false in this case
+}
+</script>
+</html>

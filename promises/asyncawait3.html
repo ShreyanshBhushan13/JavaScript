@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FETCH</title>
+</head>
+<body>
+    
+</body>
+<script>
+const GITHUB_API="https://github.com/ShreyanshBhushan13"
+
+async function handlePromise(){
+    try {
+const data=await fetch(GITHUB_API);
+// fetch return the response which is handled in data
+
+const jsonValue=await data.json();// it will take time to give response that is why we have to use await
+
+console.log(jsonValue);
+}
+     catch(err){
+console.log(err);
+        }
+
+}
+handlePromise();
+// or way to handle error
+//handlePromise().catch((err) => console.log(err));
+</script>
+</html>

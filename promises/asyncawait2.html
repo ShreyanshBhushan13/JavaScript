@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC AWAIT 2</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+     const p = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },10000);
+});
+
+const dataPromise =getData();
+//JS engine will not wait for promise to be resolved 
+dataPromise.then((res) => console.log(res));
+console.log("NAMASTE JAVASCRIPT"); // it wil be printed first then the promise will be printed
+*/
+
+
+/*
+const p = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },10000);
+});
+
+async function handlePromise(){
+    // js engine is waiting for the promise to get executed then both will be printed together
+    console.log("HELLO");
+    const val=await p;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val);
+
+    const val2=await p;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val2);
+
+    // both await is working parallely evrything is printed after 10 sec
+}
+handlePromise();
+*/
+
+
+const p1 = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },10000);
+});
+const p2 = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },5000);
+});
+
+async function handlePromise(){
+
+    console.log("HELLO");
+    const val=await p1;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val);
+
+    const val2=await p2;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val2);
+
+    // both await is working parallely evrything is printed after 10 sec
+}
+handlePromise();
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+const p3 = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },5000);
+});
+const p4 = new Promise((resolve,reject)=>{
+setTimeout(()=>{("promise RESOLVED VALUE !!");
+     },10000);
+});
+
+async function handlePromise(){
+
+    console.log("HELLO");
+    const val=await p3;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val);
+// it is printed after 5 sec
+    
+    const val2=await p4;
+    console.log("NAMASTE JAVASCRIPT");
+    console.log(val2);
+// it is printed after 10 sec
+    
+}
+handlePromise();
+</script>
+</html>

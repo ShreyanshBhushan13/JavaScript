@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE PROMISE CHAINING</title>
+</head>
+<body>
+    
+</body>
+<script>
+const cart=["shoes","pants","kurta"];
+createOrder(cart)
+.then(function(orderId)
+{
+    console.log(orderId);
+    return orderId;
+    //return proceedToPayment(orderId);
+})
+.then(function(orderId){
+    return proceedToPayment(orderId);
+})
+.then(function(paymentInfo){
+    return console.log(paymentInfo)
+})
+.catch (function(err){
+console.log(err.message);
+
+});
+
+    // PRODUCER END
+
+
+function createOrder(cart){
+const pr=new Promise(function(resolve,reject){// to create promise
+// createOrder
+// validateCart
+// orderId
+if(!validateCart(cart)){
+    const err=new Error("cart is not valid")
+reject(err);
+}
+// logic of createOrder
+const orderId="1234"
+if(orderId){
+    setTimeout(function(){
+    resolve(orderId);},5000)
+}
+});
+return pr
+}
+
+function proceedToPayment(orderId){
+return new Promise(function(resolve,reject){
+    resolve("payment successful")
+});
+
+}
+
+
+function validateCart(cart){
+    return true;// to reject cart simply change true by false in this case
+}
+</script>
+</html>
+

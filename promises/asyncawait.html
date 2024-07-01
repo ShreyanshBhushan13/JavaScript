@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC AWAIT</title>
+</head>
+<body>
+    
+</body>
+<script>
+//   ++++++++++++++++++++   WHEN ASYNC IS RETURNING VALUE IT IS WERAPPED IN PROMISE  TO REETURN PROMISE
+
+/*async function getData(){
+    return "NAMASTE";
+}
+const dataPromise=getData();
+dataPromise.then((res) => console.log(res));
+
+
+*/
+
+// +++++++++++++++++++++++++  WHEN ASYNC IS RETURNING PROMISE
+/*
+const p =new Promise(function(resolve,reject){
+resolve("promise RESOLVED VALUE !!");
+
+});
+async function getData(){
+
+    return p;
+}
+
+const dataPromise =getData();
+dataPromise.then((res) => console.log(res));
+
+*/
+
+// +++++++++++++++++++++++++ 
+
+const p = new Promise(function(resolve,reject){
+resolve("promise RESOLVED VALUE !!");
+
+});
+// await can be used inside a async function
+async function handlePromise(){
+    const val=await p;
+    console.log(p);
+}
+handlePromise();
+</script>
+</html>
